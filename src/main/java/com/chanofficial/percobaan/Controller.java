@@ -28,6 +28,7 @@ public class Controller {
     @Autowired
     @Qualifier("lineSignatureValidator")
     private LineSignatureValidator lineSignatureValidator;
+    private String replyToken;
 
     @RequestMapping(value="/webhook", method= RequestMethod.POST)
     public ResponseEntity<String> callback(
@@ -53,7 +54,7 @@ public class Controller {
                     }
                 });
 
-//            replyText(replyToken, "Ini pesan balasan");
+            replyText(replyToken, "Ini pesan balasan");
             return new ResponseEntity<>(HttpStatus.OK);
 
 
