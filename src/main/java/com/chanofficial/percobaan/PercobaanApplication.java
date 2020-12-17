@@ -10,4 +10,6 @@ public class PercobaanApplication {
 		SpringApplication.run(PercobaanApplication.class, args);
 	}
 
+
+
 }
