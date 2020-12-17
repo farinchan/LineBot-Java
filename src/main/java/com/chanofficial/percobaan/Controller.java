@@ -55,7 +55,10 @@ public class Controller {
                         if(textMessageContent.getText().equalsIgnoreCase("userid")){
                             replyText(messageEvent.getReplyToken(), event.getSource().getUserId());
                         }
-//                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
+                        if(textMessageContent.getText().equalsIgnoreCase("halo")){
+                            System.out.printf("HAlo");
+                        }
+                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
                     }
                 });
 
