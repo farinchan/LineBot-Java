@@ -61,6 +61,7 @@ public class Controller {
 
 
                 // kode reply message disini
+                // reply pesan
                 eventsModel.getEvents().forEach((event)->{
                     if (event instanceof MessageEvent) {
                         MessageEvent messageEvent = (MessageEvent) event;
@@ -79,6 +80,7 @@ public class Controller {
                     }
                 });
 
+                // reply content
             eventsModel.getEvents().forEach((event)->{
                 if (event instanceof MessageEvent) {
                     if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
@@ -86,7 +88,7 @@ public class Controller {
                             || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
                             || ((MessageEvent) event).getMessage() instanceof FileMessageContent
                     ) {
-                        String baseURL     = "https://contohlinebotjava.herokuapp.com";
+                        String baseURL     = "https://percobaan-line.herokuapp.com";
                         String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
                         String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
                         String textMsg     = contentType.substring(0, contentType.length() -14)
