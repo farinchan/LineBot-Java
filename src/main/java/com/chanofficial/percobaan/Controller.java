@@ -3,6 +3,7 @@ package com.chanofficial.percobaan;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.client.LineSignatureValidator;
+import com.linecorp.bot.model.Multicast;
 import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
@@ -17,12 +18,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 import static jdk.nashorn.internal.objects.NativeArray.push;
 
+
+
 @RestController
 public class Controller {
+
+    // Array Untuk user bot multicast pesan
+    String[] userIdList = {
+            "U206d25c2ea6bd87c17655609xxxxxxxx",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    };
+    Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
+
+
 
     @Autowired
     @Qualifier("lineMessagingClient")
@@ -37,10 +55,18 @@ public class Controller {
             @RequestHeader("X-Line-Signature") String xLineSignature,
             @RequestBody String eventsPayload)
     {
+
         try {
             if (!lineSignatureValidator.validateSignature(eventsPayload.getBytes(), xLineSignature)) {
                 throw new RuntimeException("Invalid Signature Validation");
             }
+
+            // kode multicast, Isi pesan Multicase
+            if(listUsers.size() > 0){
+                String textMsg = "Ini pesan multicast";
+                sendMulticast(listUsers, textMsg);
+            }
+
 
             // parsing event
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
@@ -56,9 +82,12 @@ public class Controller {
                             replyText(messageEvent.getReplyToken(), event.getSource().getUserId());
                         }
                         if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                            replyText(messageEvent.getReplyToken(), "halo kamu");
+                            replyText(messageEvent.getReplyToken(), "halo juga :)");
                         }
+                        /*
+                            kode dibawah untuk auto reply message dari user dengan pesan yang sama
                         replyText(messageEvent.getReplyToken(), textMessageContent.getText());
+                         */
                     }
                 });
 
@@ -71,9 +100,13 @@ public class Controller {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
+
     }
 
+
     // PUSH MASSAGE
+    // https://<nama_host>.herokuapp.com/pushmessage/id_bot/pesan
+    // https://percobaan-line.herokuapp.com/pushmessage/U65928249e5b24f78b27709916ea3915d/halo
     @RequestMapping(value="/pushmessage/{id}/{message}", method=RequestMethod.GET)
     public ResponseEntity<String> pushmessage(
             @PathVariable("id") String userId,
@@ -86,6 +119,10 @@ public class Controller {
 
         return new ResponseEntity<String>("Push message:"+textMsg+"\nsent to: "+userId, HttpStatus.OK);
     }
+
+
+
+    // Method Method yang diperlukan
 
     private void reply(ReplyMessage replyMessage) {
         try {
@@ -111,6 +148,17 @@ public class Controller {
     private void push(PushMessage pushMessage){
         try {
             lineMessagingClient.pushMessage(pushMessage).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void sendMulticast(Set<String> sourceUsers, String txtMessage){
+        TextMessage message = new TextMessage(txtMessage);
+        Multicast multicast = new Multicast(sourceUsers, message);
+
+        try {
+            lineMessagingClient.multicast(multicast).get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
