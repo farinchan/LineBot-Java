@@ -30,14 +30,6 @@ import static jdk.nashorn.internal.objects.NativeArray.push;
 @RestController
 public class Controller {
 
-    // Array Untuk user bot multicast pesan
-    String[] userIdList = {
-            "U65928249e5b24f78b27709916ea3915d"
-    };
-    Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
-
-
-
     @Autowired
     @Qualifier("lineMessagingClient")
     private LineMessagingClient lineMessagingClient;
@@ -56,15 +48,6 @@ public class Controller {
             if (!lineSignatureValidator.validateSignature(eventsPayload.getBytes(), xLineSignature)) {
                 throw new RuntimeException("Invalid Signature Validation");
             }
-
-            // kode multicast, Isi pesan Multicase
-            // https://<nama_host>.herokuapp.com/multicast
-            // https://percobaan-line.herokuapp.com/multicast
-            if(listUsers.size() > 0){
-                String textMsg = "Ini pesan multicast";
-                sendMulticast(listUsers, textMsg);
-            }
-
 
             // parsing event
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
@@ -114,8 +97,23 @@ public class Controller {
         PushMessage pushMessage = new PushMessage(userId, textMessage);
         push(pushMessage);
 
-
         return new ResponseEntity<String>("Push message:"+textMsg+"\nsent to: "+userId, HttpStatus.OK);
+    }
+
+    // kode multicast, Isi pesan Multicase
+    // https://<nama_host>.herokuapp.com/multicast
+    // https://percobaan-line.herokuapp.com/multicast
+    @RequestMapping(value="/multicast", method=RequestMethod.GET)
+    public ResponseEntity<String> multicast(){
+        // Array Untuk user bot multicast pesan
+        String[] userIdList = {
+                "U65928249e5b24f78b27709916ea3915d"};
+        Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
+        if(listUsers.size() > 0){
+            String textMsg = "Ini pesan multicast";
+            sendMulticast(listUsers, textMsg);
+        }
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
 
