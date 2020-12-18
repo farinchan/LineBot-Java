@@ -29,6 +29,7 @@ import static jdk.nashorn.internal.objects.NativeArray.push;
 
 @RestController
 public class Controller {
+    String pesanMulticase = "ini adalah pesan multicsase\napabilas ada berarti berhasl";
 
     @Autowired
     @Qualifier("lineMessagingClient")
@@ -68,7 +69,6 @@ public class Controller {
 
                         /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
                         replyText(messageEvent.getReplyToken(), textMessageContent.getText());
-
                          */
 
                     }
@@ -110,7 +110,7 @@ public class Controller {
                 "U65928249e5b24f78b27709916ea3915d"};
         Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
         if(listUsers.size() > 0){
-            String textMsg = "Ini pesan multicast";
+            String textMsg = pesanMulticase;
             sendMulticast(listUsers, textMsg);
         }
         return new ResponseEntity<String>(HttpStatus.OK);
