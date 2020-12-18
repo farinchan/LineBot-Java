@@ -32,11 +32,7 @@ public class Controller {
 
     // Array Untuk user bot multicast pesan
     String[] userIdList = {
-            "U206d25c2ea6bd87c17655609xxxxxxxx",
-            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            "U65928249e5b24f78b27709916ea3915d"
     };
     Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
 
