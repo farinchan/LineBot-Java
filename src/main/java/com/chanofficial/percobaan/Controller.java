@@ -3,22 +3,27 @@ package com.chanofficial.percobaan;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.client.LineSignatureValidator;
+import com.linecorp.bot.client.MessageContentResponse;
 import com.linecorp.bot.model.Multicast;
 import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
-import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.event.message.*;
 import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper;
 import com.linecorp.bot.model.profile.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -74,6 +79,29 @@ public class Controller {
                     }
                 });
 
+            eventsModel.getEvents().forEach((event)->{
+                if (event instanceof MessageEvent) {
+                    if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
+                            || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
+                            || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
+                            || ((MessageEvent) event).getMessage() instanceof FileMessageContent
+                    ) {
+                        String baseURL     = "https://contohlinebotjava.herokuapp.com";
+                        String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
+                        String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
+                        String textMsg     = contentType.substring(0, contentType.length() -14)
+                                + " yang kamu kirim bisa diakses dari link:\n "
+                                + contentURL;
+
+                        replyText(((MessageEvent) event).getReplyToken(), textMsg);
+                    } else {
+                        MessageEvent messageEvent = (MessageEvent) event;
+                        TextMessageContent textMessageContent = (TextMessageContent) messageEvent.getMessage();
+                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
+                    }
+                }
+            });
+
 
             return new ResponseEntity<>(HttpStatus.OK);
 
@@ -117,6 +145,8 @@ public class Controller {
     }
 
     // Profile API
+    // https://<nama_host>.herokuapp.com/profile
+    // https://percobaan-line.herokuapp.com/profile
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ResponseEntity<String> profile(){
         String userId = "U65928249e5b24f78b27709916ea3915d";
@@ -132,6 +162,26 @@ public class Controller {
         }
 
         return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value = "/content/{id}", method = RequestMethod.GET)
+    public ResponseEntity content(
+            @PathVariable("id") String messageId
+    ){
+        MessageContentResponse messageContent = getContent(messageId);
+
+        if(messageContent != null) {
+            HttpHeaders headers = new HttpHeaders();
+            String[] mimeType = messageContent.getMimeType().split("/");
+            headers.setContentType(new MediaType(mimeType[0], mimeType[1]));
+
+            InputStream inputStream = messageContent.getStream();
+            InputStreamResource inputStreamResource = new InputStreamResource(inputStream);
+
+            return new ResponseEntity<>(inputStreamResource, headers, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 
@@ -181,6 +231,14 @@ public class Controller {
     private UserProfileResponse getProfile(String userId){
         try {
             return lineMessagingClient.getProfile(userId).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private MessageContentResponse getContent(String messageId) {
+        try {
+            return lineMessagingClient.getMessageContent(messageId).get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
