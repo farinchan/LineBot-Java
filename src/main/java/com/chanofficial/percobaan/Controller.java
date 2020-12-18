@@ -66,8 +66,10 @@ public class Controller {
                             replyText(messageEvent.getReplyToken(), "halo juga :)");
                         }
 
-                           // kode dibawah untuk auto reply message dari user dengan pesan yang sama
+                        /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
                         replyText(messageEvent.getReplyToken(), textMessageContent.getText());
+
+                         */
 
                     }
                 });
@@ -80,8 +82,6 @@ public class Controller {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-
     }
 
 
@@ -100,7 +100,7 @@ public class Controller {
         return new ResponseEntity<String>("Push message:"+textMsg+"\nsent to: "+userId, HttpStatus.OK);
     }
 
-    // kode multicast, Isi pesan Multicase
+    // multicast massage
     // https://<nama_host>.herokuapp.com/multicast
     // https://percobaan-line.herokuapp.com/multicast
     @RequestMapping(value="/multicast", method=RequestMethod.GET)
