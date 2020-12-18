@@ -119,7 +119,7 @@ public class Controller {
     // Profile API
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ResponseEntity<String> profile(){
-        String userId = "Isi dengan userId Anda";
+        String userId = "U65928249e5b24f78b27709916ea3915d";
         UserProfileResponse profile = getProfile(userId);
 
         if (profile != null) {
