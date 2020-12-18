@@ -29,7 +29,6 @@ import static jdk.nashorn.internal.objects.NativeArray.push;
 
 @RestController
 public class Controller {
-    String pesanMulticase = "ini adalah pesan multicsase\napabilas ada berarti berhasl";
 
     @Autowired
     @Qualifier("lineMessagingClient")
@@ -110,7 +109,7 @@ public class Controller {
                 "U65928249e5b24f78b27709916ea3915d"};
         Set<String> listUsers = new HashSet<String>(Arrays.asList(userIdList));
         if(listUsers.size() > 0){
-            String textMsg = pesanMulticase;
+            String textMsg = "ini adalah pesan multicast\njika pesan ini tampil artinya\nBERHASIL";
             sendMulticast(listUsers, textMsg);
         }
         return new ResponseEntity<String>(HttpStatus.OK);
