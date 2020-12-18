@@ -62,23 +62,23 @@ public class Controller {
 
                 // kode reply message disini
                 // reply pesan
-                eventsModel.getEvents().forEach((event)->{
-                    if (event instanceof MessageEvent) {
-                        MessageEvent messageEvent = (MessageEvent) event;
-                        TextMessageContent textMessageContent = (TextMessageContent) messageEvent.getMessage();
-                        if(textMessageContent.getText().equalsIgnoreCase("userid")){
-                            replyText(messageEvent.getReplyToken(), event.getSource().getUserId());
-                        }
-                        if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                            replyText(messageEvent.getReplyToken(), "halo juga :)");
-                        }
-
-                        /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
-                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
-                         */
-
-                    }
-                });
+//                eventsModel.getEvents().forEach((event)->{
+//                    if (event instanceof MessageEvent) {
+//                        MessageEvent messageEvent = (MessageEvent) event;
+//                        TextMessageContent textMessageContent = (TextMessageContent) messageEvent.getMessage();
+//                        if(textMessageContent.getText().equalsIgnoreCase("userid")){
+//                            replyText(messageEvent.getReplyToken(), event.getSource().getUserId());
+//                        }
+//                        if(textMessageContent.getText().equalsIgnoreCase("halo")){
+//                            replyText(messageEvent.getReplyToken(), "halo juga :)");
+//                        }
+//
+//                        /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
+//                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
+//                         */
+//
+//                    }
+//                });
 
                 // reply content
             eventsModel.getEvents().forEach((event)->{
