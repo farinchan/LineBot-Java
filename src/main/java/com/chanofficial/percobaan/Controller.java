@@ -62,6 +62,8 @@ public class Controller {
             }
 
             // kode multicast, Isi pesan Multicase
+            // https://<nama_host>.herokuapp.com/multicast
+            // https://percobaan-line.herokuapp.com/multicast
             if(listUsers.size() > 0){
                 String textMsg = "Ini pesan multicast";
                 sendMulticast(listUsers, textMsg);
@@ -84,10 +86,10 @@ public class Controller {
                         if(textMessageContent.getText().equalsIgnoreCase("halo")){
                             replyText(messageEvent.getReplyToken(), "halo juga :)");
                         }
-                        /*
-                            kode dibawah untuk auto reply message dari user dengan pesan yang sama
+
+                           // kode dibawah untuk auto reply message dari user dengan pesan yang sama
                         replyText(messageEvent.getReplyToken(), textMessageContent.getText());
-                         */
+
                     }
                 });
 
