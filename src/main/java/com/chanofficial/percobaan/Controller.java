@@ -224,40 +224,47 @@ public class Controller {
 
         // Kode untuk reply essage disini
 
-                            // reply content
-                            if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
-                            || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
-                            || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
-                            || ((MessageEvent) event).getMessage() instanceof FileMessageContent
-                    ) {
-                        String baseURL     = "https://percobaan-line.herokuapp.com";
-                        String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
-                        String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
-                        String textMsg     = contentType.substring(0, contentType.length() -14)
-                                + " yang kamu kirim bisa diakses dari link:\n "
-                                + contentURL;
+                        // reply content
+                        if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
+                        || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
+                        || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
+                        || ((MessageEvent) event).getMessage() instanceof FileMessageContent
+                            ) {
+                                String baseURL     = "https://percobaan-line.herokuapp.com";
+                                String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
+                                String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
+                                String textMsg     = contentType.substring(0, contentType.length() -14)
+                                        + " yang kamu kirim bisa diakses dari link:\n "
+                                        + contentURL;
 
-                        replyText(((MessageEvent) event).getReplyToken(), textMsg);
-                    }
-                            // reply pesan
-                            else if (event.getMessage() instanceof TextMessageContent){
-                        MessageEvent messageEvent = (MessageEvent) event;
-                        TextMessageContent textMessageContent = (TextMessageContent) messageEvent.getMessage();
-                        if(textMessageContent.getText().equalsIgnoreCase("userid")){
-                            replyText(messageEvent.getReplyToken(), event.getSource().getUserId());
-                        }
-                        if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                            replyText(messageEvent.getReplyToken(), "halo juga :)");
-                        }
-                        /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
-                        replyText(messageEvent.getReplyToken(), textMessageContent.getText());
-                         */
-                    }else {
-                                replyText(event.getReplyToken(), "Unknown Message");
+                                replyText(((MessageEvent) event).getReplyToken(), textMsg);
                             }
 
+                        // reply pesan
+                        else if (event.getMessage() instanceof TextMessageContent){
+                            TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
+                            if (textMessageContent.getText().toLowerCase().contains("flex")) {
+                                replyFlexMessage(event.getReplyToken());
+                            } else {
+                                if(textMessageContent.getText().equalsIgnoreCase("userid")){
+                                    replyText(event.getReplyToken(), event.getSource().getUserId());
+                                }
+                                if(textMessageContent.getText().equalsIgnoreCase("halo")){
+                                    replyText(event.getReplyToken(), "halo juga :)");}
 
-    }
+
+//                                    replyText(event.getReplyToken(), textMessageContent.getText());
+                            }
+
+                        }
+                        else {
+                            replyText(event.getReplyToken(), "Unknown Message");
+                            }
+                        }
+
+
+
+
 
     private void handleGroupRoomChats(MessageEvent event) {
         if(!event.getSource().getUserId().isEmpty()) {
