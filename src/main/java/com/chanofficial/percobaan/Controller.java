@@ -246,14 +246,16 @@ public class Controller {
                             if (textMessageContent.getText().toLowerCase().contains("flex")) {
                                 replyFlexMessage(event.getReplyToken());
                             } else {
+
                                 if(textMessageContent.getText().equalsIgnoreCase("userid")){
                                     replyText(event.getReplyToken(), event.getSource().getUserId());
                                 }
                                 if(textMessageContent.getText().equalsIgnoreCase("halo")){
                                     replyText(event.getReplyToken(), "halo juga :)");}
 
-
-//                                    replyText(event.getReplyToken(), textMessageContent.getText());
+                                /*kode dibawah untuk reply message, kembalikan message yang dikirim
+                                replyText(event.getReplyToken(), textMessageContent.getText());
+                                 */
                             }
 
                         }
