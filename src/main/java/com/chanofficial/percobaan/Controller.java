@@ -11,10 +11,13 @@ import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.*;
 import com.linecorp.bot.model.event.source.GroupSource;
 import com.linecorp.bot.model.event.source.RoomSource;
+import com.linecorp.bot.model.message.FlexMessage;
 import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.message.flex.container.FlexContainer;
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper;
 import com.linecorp.bot.model.profile.UserProfileResponse;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.InputStreamResource;
@@ -63,17 +66,16 @@ public class Controller {
 
 
             // kode reply message disini
-            // reply content dan elsenya reply pesan
             eventsModel.getEvents().forEach((event)->{
                 if (event instanceof MessageEvent) {
 
                     if (event.getSource() instanceof GroupSource || event.getSource() instanceof RoomSource) {
+                        // dengan method
                         handleGroupRoomChats((MessageEvent) event);
                     } else {
+                        // dengan method
                         handleOneOnOneChats((MessageEvent) event);
                     }
-
-
                 }
             });
 
@@ -220,6 +222,9 @@ public class Controller {
 
     private void handleOneOnOneChats(MessageEvent event) {
 
+        // Kode untuk reply essage disini
+
+                            // reply content
                             if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
                             || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
                             || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
@@ -233,7 +238,9 @@ public class Controller {
                                 + contentURL;
 
                         replyText(((MessageEvent) event).getReplyToken(), textMsg);
-                    } else {
+                    }
+                            // reply pesan
+                            else if (event.getMessage() instanceof TextMessageContent){
                         MessageEvent messageEvent = (MessageEvent) event;
                         TextMessageContent textMessageContent = (TextMessageContent) messageEvent.getMessage();
                         if(textMessageContent.getText().equalsIgnoreCase("userid")){
@@ -245,7 +252,9 @@ public class Controller {
                         /*   kode dibawah untuk auto reply message dari user dengan pesan yang sama
                         replyText(messageEvent.getReplyToken(), textMessageContent.getText());
                          */
-                    }
+                    }else {
+                                replyText(event.getReplyToken(), "Unknown Message");
+                            }
 
 
     }
@@ -257,6 +266,23 @@ public class Controller {
             replyText(event.getReplyToken(), "Hello, " + profile.getDisplayName());
         } else {
             replyText(event.getReplyToken(), "Hello, what is your name?");
+        }
+    }
+
+    private void replyFlexMessage(String replyToken) {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
+
+
+            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
+
+
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Dicoding Academy", flexContainer));
+            reply(replyMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
