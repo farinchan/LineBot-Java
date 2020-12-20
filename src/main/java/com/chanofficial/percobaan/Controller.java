@@ -282,7 +282,7 @@ public class Controller {
     private void replyFlexMessage(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
 
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();

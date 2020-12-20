@@ -1,0 +1,105 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://percobaan-line.herokuapp.com/content/13234524825075",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "fit",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "md",
+        "text": "日本語クラブ MAN 4 メダン",
+        "style": "normal"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Klub bahasa jepang Man 4 Medan adalah klub yang mewadahi para siswa, untuk mempelajari bahasa jepang, untuk meningkatkan mutu bakat dan minat para siswa dalam mempelajari bahasa asing",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "place",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1,
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "Man 4 Medan \n Griya martubung, Medan, Sumatera utara",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "WEBSITE",
+          "uri": "http://nihongokurabuman4.rf.gd/"
+        }
+      },
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "MAPS",
+          "uri": "https://goo.gl/maps/z3iv1e64aTGdwvnk8"
+        }
+      },
+      {
+        "type": "spacer",
+        "size": "sm"
+      }
+    ],
+    "flex": 0
+  }
+}
