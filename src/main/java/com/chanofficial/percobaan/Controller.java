@@ -254,7 +254,7 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("coba")){
                         replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
+                    if(textMessageContent.getText().equalsIgnoreCase("HALO")){
                         replyFlexMessage1(event.getReplyToken());
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
