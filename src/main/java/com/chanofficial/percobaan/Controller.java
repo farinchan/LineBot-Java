@@ -255,10 +255,13 @@ public class Controller {
                         replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("HALO")){
-                        replyFlexMessage1(event.getReplyToken());
+                        replyFlexMessage4(event.getReplyToken());
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
                         replyFlexMessage2(event.getReplyToken());
+                    }
+                    if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
+                        replyFlexMessage3(event.getReplyToken());
                     }
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
@@ -286,7 +289,7 @@ public class Controller {
         }
     }
 
-    private void replyFlexMessage1(String replyToken) {
+    private void replyFlexMessage4(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pertama.json"));
@@ -309,6 +312,20 @@ public class Controller {
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
             ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("about", flexContainer));
+            reply(replyMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void replyFlexMessage3(String replyToken) {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
+
+            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
+
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("abos ut", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
