@@ -254,10 +254,10 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("coba")){
                         replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("info")){
+                    if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
                         replyFlexMessage1(event.getReplyToken());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("dicoding")){
+                    if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
                         replyFlexMessage2(event.getReplyToken());
                     }
 
@@ -289,7 +289,7 @@ public class Controller {
     private void replyFlexMessage1(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("first.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
@@ -303,7 +303,7 @@ public class Controller {
     private void replyFlexMessage2(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
