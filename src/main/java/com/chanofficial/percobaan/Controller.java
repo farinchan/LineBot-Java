@@ -244,18 +244,22 @@ public class Controller {
             // reply flex dan pesan
             else if (event.getMessage() instanceof TextMessageContent){
                 TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
-                if (textMessageContent.getText().toLowerCase().contains("halo")) {
-                    replyFlexMessage(event.getReplyToken());
+                if (textMessageContent.getText().toLowerCase().contains("halo bot")) {
+                    replyText(event.getReplyToken(), "haloo juga :)");
                 } else {
 
                     if(textMessageContent.getText().equalsIgnoreCase("userid")){
                         replyText(event.getReplyToken(), event.getSource().getUserId());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("hola")){
-                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu hola :)");
+                    if(textMessageContent.getText().equalsIgnoreCase("coba")){
+                        replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("info")){
-                        replyFlexMessage(event.getReplyToken());}
+                        replyFlexMessage1(event.getReplyToken());
+                    }
+                    if(textMessageContent.getText().equalsIgnoreCase("dicoding")){
+                        replyFlexMessage2(event.getReplyToken());
+                    }
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
                     replyText(event.getReplyToken(), textMessageContent.getText());
@@ -282,17 +286,29 @@ public class Controller {
         }
     }
 
-    private void replyFlexMessage(String replyToken) {
+    private void replyFlexMessage1(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
 
+            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
+
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("info", flexContainer));
+            reply(replyMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void replyFlexMessage2(String replyToken) {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("info", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("dicoding", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
