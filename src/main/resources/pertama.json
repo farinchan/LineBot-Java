@@ -1,110 +1,27 @@
 {
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "body": {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
         "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
         "contents": [
-          {
-            "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "2:3",
-            "gravity": "top"
-          },
           {
             "type": "box",
             "layout": "vertical",
             "contents": [
               {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Brown's T-shirts",
-                    "size": "xl",
-                    "color": "#ffffff",
-                    "weight": "bold"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "¥35,800",
-                    "color": "#ebebeb",
-                    "size": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "¥75,000",
-                    "color": "#ffffffcc",
-                    "decoration": "line-through",
-                    "gravity": "bottom",
-                    "flex": 0,
-                    "size": "sm"
-                  }
-                ],
-                "spacing": "lg"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "filler"
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                      {
-                        "type": "filler"
-                      },
-                      {
-                        "type": "icon",
-                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                      },
-                      {
-                        "type": "text",
-                        "text": "Add to cart",
-                        "color": "#ffffff",
-                        "flex": 0,
-                        "offsetTop": "-2px"
-                      },
-                      {
-                        "type": "filler"
-                      }
-                    ],
-                    "spacing": "sm"
-                  },
-                  {
-                    "type": "filler"
-                  }
-                ],
-                "borderWidth": "1px",
-                "cornerRadius": "4px",
-                "spacing": "sm",
-                "borderColor": "#ffffff",
-                "margin": "xxl",
-                "height": "40px"
+                "type": "image",
+                "url": "https://percobaan-line.herokuapp.com/content/13235075318005",
+                "aspectMode": "cover",
+                "size": "full"
               }
             ],
-            "position": "absolute",
-            "offsetBottom": "0px",
-            "offsetStart": "0px",
-            "offsetEnd": "0px",
-            "backgroundColor": "#03303Acc",
-            "paddingAll": "20px",
-            "paddingTop": "18px"
+            "cornerRadius": "100px",
+            "width": "72px",
+            "height": "72px"
           },
           {
             "type": "box",
@@ -112,154 +29,121 @@
             "contents": [
               {
                 "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "Haloo",
+                    "weight": "bold",
+                    "color": "#000000"
+                  },
+                  {
+                    "type": "span",
+                    "text": "     "
+                  },
+                  {
+                    "type": "span",
+                    "text": "Ada yang bisa saya bantu"
+                  }
+                ],
+                "size": "sm",
+                "wrap": true
               }
-            ],
-            "position": "absolute",
-            "cornerRadius": "20px",
-            "offsetTop": "18px",
-            "backgroundColor": "#ff334b",
-            "offsetStart": "18px",
-            "height": "25px",
-            "width": "53px"
+            ]
           }
         ],
-        "paddingAll": "0px"
+        "spacing": "xl",
+        "paddingAll": "20px"
+      },
+      {
+        "type": "text",
+        "text": "untuk perintah bot\nsilahkan tekan tombol dbawah ini",
+        "margin": "none",
+        "align": "center",
+        "wrap": true,
+        "size": "sm"
       }
-    },
-    {
-      "type": "bubble",
-      "body": {
+    ],
+    "paddingAll": "0px"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "untuk daftar klik dibawah ini ",
+        "align": "center"
+      },
+      {
         "type": "box",
         "layout": "vertical",
         "contents": [
           {
-            "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip2.jpg",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "2:3",
-            "gravity": "top"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Cony's T-shirts",
-                    "size": "xl",
-                    "color": "#ffffff",
-                    "weight": "bold"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "¥35,800",
-                    "color": "#ebebeb",
-                    "size": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "¥75,000",
-                    "color": "#ffffffcc",
-                    "decoration": "line-through",
-                    "gravity": "bottom",
-                    "flex": 0,
-                    "size": "sm"
-                  }
-                ],
-                "spacing": "lg"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "filler"
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                      {
-                        "type": "filler"
-                      },
-                      {
-                        "type": "icon",
-                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                      },
-                      {
-                        "type": "text",
-                        "text": "Add to cart",
-                        "color": "#ffffff",
-                        "flex": 0,
-                        "offsetTop": "-2px"
-                      },
-                      {
-                        "type": "filler"
-                      }
-                    ],
-                    "spacing": "sm"
-                  },
-                  {
-                    "type": "filler"
-                  }
-                ],
-                "borderWidth": "1px",
-                "cornerRadius": "4px",
-                "spacing": "sm",
-                "borderColor": "#ffffff",
-                "margin": "xxl",
-                "height": "40px"
-              }
-            ],
-            "position": "absolute",
-            "offsetBottom": "0px",
-            "offsetStart": "0px",
-            "offsetEnd": "0px",
-            "backgroundColor": "#9C8E7Ecc",
-            "paddingAll": "20px",
-            "paddingTop": "18px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
-              }
-            ],
-            "position": "absolute",
-            "cornerRadius": "20px",
-            "offsetTop": "18px",
-            "backgroundColor": "#ff334b",
-            "offsetStart": "18px",
-            "height": "25px",
-            "width": "53px"
+            "type": "text",
+            "text": "Daftar Klub",
+            "align": "center",
+            "style": "normal",
+            "size": "xxl"
           }
         ],
-        "paddingAll": "0px"
+        "backgroundColor": "#75ba50",
+        "margin": "lg",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://share-file.mydiscussion.net/daftar/"
+        },
+        "paddingStart": "xxl",
+        "paddingEnd": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "postback",
+                  "label": "About",
+                  "data": "ABOUT"
+                }
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "postback",
+                  "label": "Pengajar",
+                  "data": "PENGAJAR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Ayo Mulai Belajar",
+              "data": "MULAI BELAJAR"
+            }
+          }
+        ]
       }
-    }
-  ]
+    ]
+  }
 }

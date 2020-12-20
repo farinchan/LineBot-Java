@@ -254,7 +254,7 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("coba")){
                         replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("HALOss")){
+                    if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
                         replyFlexMessage1(event.getReplyToken());
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
@@ -263,7 +263,7 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
                         replyFlexMessage3(event.getReplyToken());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
+                    if(textMessageContent.getText().equalsIgnoreCase("bakso")){
                         replyFlexMessage4(event.getReplyToken());
                     }
 
