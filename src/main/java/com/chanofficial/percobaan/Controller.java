@@ -245,7 +245,6 @@ public class Controller {
             else if (event.getMessage() instanceof TextMessageContent){
                 TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
                 if (textMessageContent.getText().toLowerCase().contains("halo")) {
-                    replyText(event.getReplyToken(), "halo ada yang bisa saya bantu :)");
                     replyFlexMessage(event.getReplyToken());
                 } else {
 
