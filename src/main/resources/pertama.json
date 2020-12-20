@@ -144,11 +144,6 @@
           }
         ]
       }
-    ],
-    "action": {
-      "type": "message",
-      "label": "action",
-      "text": "belajar bahasa jepang"
-    }
+    ]
   }
 }
