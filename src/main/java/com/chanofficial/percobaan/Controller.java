@@ -252,7 +252,8 @@ public class Controller {
                         replyText(event.getReplyToken(), event.getSource().getUserId());
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                        replyText(event.getReplyToken(), "halo juga :)");}
+                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu :)");
+                        replyFlexMessage(event.getReplyToken());}
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
                     replyText(event.getReplyToken(), textMessageContent.getText());
@@ -289,7 +290,7 @@ public class Controller {
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Dicoding Academy", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("info", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);

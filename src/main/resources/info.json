@@ -83,7 +83,8 @@
           "type": "uri",
           "label": "WEBSITE",
           "uri": "http://nihongokurabuman4.rf.gd/"
-        }
+        },
+        "color": "#FF3D3D"
       },
       {
         "type": "button",
@@ -93,7 +94,8 @@
           "type": "uri",
           "label": "MAPS",
           "uri": "https://goo.gl/maps/z3iv1e64aTGdwvnk8"
-        }
+        },
+        "color": "#58B7FF"
       },
       {
         "type": "spacer",
