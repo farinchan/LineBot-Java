@@ -252,7 +252,10 @@ public class Controller {
                         replyText(event.getReplyToken(), event.getSource().getUserId());
                     }
                     if(textMessageContent.getText().equalsIgnoreCase("hola")){
-                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu hola :)");}
+                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu hola :)");
+                    }
+                    if(textMessageContent.getText().equalsIgnoreCase("info")){
+                        replyFlexMessage(event.getReplyToken());}
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
                     replyText(event.getReplyToken(), textMessageContent.getText());
