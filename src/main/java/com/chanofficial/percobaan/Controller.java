@@ -289,12 +289,12 @@ public class Controller {
     private void replyFlexMessage1(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("first.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pertama.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("info", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("first", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -308,7 +308,7 @@ public class Controller {
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("dicoding", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("about", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
