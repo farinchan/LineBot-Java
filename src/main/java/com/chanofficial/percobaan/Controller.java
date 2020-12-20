@@ -220,54 +220,55 @@ public class Controller {
         }
     }
 
+// Method Untuk reply message di private chat
     private void handleOneOnOneChats(MessageEvent event) {
 
-        // Kode untuk reply essage disini
+        // Kode untuk reply message disini
 
-                        // reply content
-                        if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
-                        || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
-                        || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
-                        || ((MessageEvent) event).getMessage() instanceof FileMessageContent
-                            ) {
-                                String baseURL     = "https://percobaan-line.herokuapp.com";
-                                String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
-                                String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
-                                String textMsg     = contentType.substring(0, contentType.length() -14)
-                                        + " yang kamu kirim bisa diakses dari link:\n "
-                                        + contentURL;
+            // reply content
+            if  ((  (MessageEvent) event).getMessage() instanceof AudioMessageContent
+            || ((MessageEvent) event).getMessage() instanceof ImageMessageContent
+            || ((MessageEvent) event).getMessage() instanceof VideoMessageContent
+            || ((MessageEvent) event).getMessage() instanceof FileMessageContent
+                ) {
+                    String baseURL     = "https://percobaan-line.herokuapp.com";
+                    String contentURL  = baseURL+"/content/"+ ((MessageEvent) event).getMessage().getId();
+                    String contentType = ((MessageEvent) event).getMessage().getClass().getSimpleName();
+                    String textMsg     = contentType.substring(0, contentType.length() -14)
+                            + " yang kamu kirim bisa diakses dari link:\n "
+                            + contentURL;
 
-                                replyText(((MessageEvent) event).getReplyToken(), textMsg);
-                            }
+                    replyText(((MessageEvent) event).getReplyToken(), textMsg);
+                }
 
-                        // reply pesan
-                        else if (event.getMessage() instanceof TextMessageContent){
-                            TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
-                            if (textMessageContent.getText().toLowerCase().contains("flex")) {
-                                replyFlexMessage(event.getReplyToken());
-                            } else {
+            // reply flex dan pesan
+            else if (event.getMessage() instanceof TextMessageContent){
+                TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
+                if (textMessageContent.getText().toLowerCase().contains("flex")) {
+                    replyFlexMessage(event.getReplyToken());
+                } else {
 
-                                if(textMessageContent.getText().equalsIgnoreCase("userid")){
-                                    replyText(event.getReplyToken(), event.getSource().getUserId());
-                                }
-                                if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                                    replyText(event.getReplyToken(), "halo juga :)");}
+                    if(textMessageContent.getText().equalsIgnoreCase("userid")){
+                        replyText(event.getReplyToken(), event.getSource().getUserId());
+                    }
+                    if(textMessageContent.getText().equalsIgnoreCase("halo")){
+                        replyText(event.getReplyToken(), "halo juga :)");}
 
-                                /*kode dibawah untuk reply message, kembalikan message yang dikirim
-                                replyText(event.getReplyToken(), textMessageContent.getText());
-                                 */
-                            }
+                    /*kode dibawah untuk reply message, kembalikan message yang dikirim
+                    replyText(event.getReplyToken(), textMessageContent.getText());
+                     */
+                }
 
-                        }
-                        else {
-                            replyText(event.getReplyToken(), "Unknown Message");
-                            }
-                        }
-
-
+            }
+            else {
+                replyText(event.getReplyToken(), "Unknown Message");
+                }
+            }
 
 
 
+
+// Method untuk reply message di grup
     private void handleGroupRoomChats(MessageEvent event) {
         if(!event.getSource().getUserId().isEmpty()) {
             String userId = event.getSource().getUserId();
