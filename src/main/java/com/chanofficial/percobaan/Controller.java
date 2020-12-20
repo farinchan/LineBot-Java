@@ -263,9 +263,6 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
                         replyFlexMessage3(event.getReplyToken());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("bakso")){
-                        replyFlexMessage4(event.getReplyToken());
-                    }
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
                     replyText(event.getReplyToken(), textMessageContent.getText());
@@ -295,7 +292,7 @@ public class Controller {
     private void replyFlexMessage1(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pertama.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("test.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
@@ -324,20 +321,6 @@ public class Controller {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
-
-            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
-            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
-
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("abos ut", flexContainer));
-            reply(replyMessage);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    private void replyFlexMessage4(String replyToken) {
-        try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("first.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);

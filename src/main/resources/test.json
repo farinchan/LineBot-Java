@@ -109,7 +109,8 @@
                 "action": {
                   "type": "postback",
                   "label": "About",
-                  "data": "ABOUT"
+                  "data": "ABOUT",
+                  "displayText": "About"
                 }
               }
             ]
@@ -123,7 +124,8 @@
                 "action": {
                   "type": "postback",
                   "label": "Pengajar",
-                  "data": "PENGAJAR"
+                  "data": "PENGAJAR",
+                  "displayText": "Pengajar"
                 }
               }
             ]
@@ -139,7 +141,8 @@
             "action": {
               "type": "postback",
               "label": "Ayo Mulai Belajar",
-              "data": "MULAI BELAJAR"
+              "data": "MULAI BELAJAR",
+              "displayText": "Ayo Mulai Belajar"
             }
           }
         ]
