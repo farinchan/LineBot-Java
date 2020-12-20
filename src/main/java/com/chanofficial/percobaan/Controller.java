@@ -244,16 +244,16 @@ public class Controller {
             // reply flex dan pesan
             else if (event.getMessage() instanceof TextMessageContent){
                 TextMessageContent textMessageContent = (TextMessageContent) event.getMessage();
-                if (textMessageContent.getText().toLowerCase().contains("flex")) {
+                if (textMessageContent.getText().toLowerCase().contains("halo")) {
+                    replyText(event.getReplyToken(), "halo ada yang bisa saya bantu :)");
                     replyFlexMessage(event.getReplyToken());
                 } else {
 
                     if(textMessageContent.getText().equalsIgnoreCase("userid")){
                         replyText(event.getReplyToken(), event.getSource().getUserId());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("halo")){
-                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu :)");
-                        replyFlexMessage(event.getReplyToken());}
+                    if(textMessageContent.getText().equalsIgnoreCase("hola")){
+                        replyText(event.getReplyToken(), "halo ada yang bisa saya bantu hola :)");}
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
                     replyText(event.getReplyToken(), textMessageContent.getText());
