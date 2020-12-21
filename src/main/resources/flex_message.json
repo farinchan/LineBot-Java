@@ -54,9 +54,9 @@
         "style": "secondary",
         "action": {
           "type": "postback",
-          "label": "Trial",
-          "displayText": "Trial",
-          "data": "Trial"
+          "displayText": "coba3",
+          "data": "coba2",
+          "label": "coba1"
         }
       },
       {
