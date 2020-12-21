@@ -88,20 +88,37 @@
           {
             "type": "button",
             "action": {
-              "type": "uri",
-              "label": "action",
-              "uri": "http://linecorp.com/"
-            }
+              "type": "postback",
+              "label": "About",
+              "data": "About",
+              "displayText": "About"
+            },
+            "style": "secondary",
+            "offsetEnd": "xs"
           },
           {
             "type": "button",
             "action": {
-              "type": "uri",
-              "label": "action",
-              "uri": "http://linecorp.com/"
-            }
+              "type": "postback",
+              "label": "Pengajar",
+              "data": "Pengajar",
+              "displayText": "Pengajar"
+            },
+            "style": "secondary",
+            "offsetStart": "xs"
           }
         ]
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "postback",
+          "label": "Ayo Mulai Belajar",
+          "data": "Ayo Mulai Belajar",
+          "displayText": "mulai belajar"
+        },
+        "style": "secondary",
+        "offsetTop": "md"
       }
     ]
   }
