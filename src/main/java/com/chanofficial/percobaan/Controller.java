@@ -88,6 +88,12 @@ public class Controller {
                     if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pengajar")){
                         replyFlexMessage3(((PostbackEvent) event).getReplyToken());
                     }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("mulai belajar")){
+                        replyFlexMessage4(((PostbackEvent) event).getReplyToken());
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran1")){
+                        replyFlexMessage5(((PostbackEvent) event).getReplyToken());
+                    }
 
                 }
             });
@@ -277,7 +283,7 @@ public class Controller {
                         replyFlexMessage3(event.getReplyToken());
                     }
                     else {
-                        replyText(event.getReplyToken(), "command tidak dikenali, mohon masukkan kembali :)");
+                        replyText(event.getReplyToken(), "command tidak dikenali, mohon masukkan kembali :)\nketikkan \"Haloo\" untuk memulai percakapan");
                     }
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
@@ -313,7 +319,7 @@ public class Controller {
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("first", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Haloo, Ada yang bisa saya bantu", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -327,7 +333,7 @@ public class Controller {
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("about", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Tentang Bot Kub bahasa jepang MAN 4 Medan", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -341,7 +347,35 @@ public class Controller {
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
 
-            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("abos ut", flexContainer));
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Pengajar Klub Bahasa Jepang", flexContainer));
+            reply(replyMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void replyFlexMessage4(String replyToken) {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("belajar.json"));
+
+            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
+
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Pengajar Klub Bahasa Jepang", flexContainer));
+            reply(replyMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void replyFlexMessage5(String replyToken) {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pelajaran1.json"));
+
+            ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+            FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
+
+            ReplyMessage replyMessage = new ReplyMessage(replyToken, new FlexMessage("Pengajar Klub Bahasa Jepang", flexContainer));
             reply(replyMessage);
         } catch (IOException e) {
             throw new RuntimeException(e);

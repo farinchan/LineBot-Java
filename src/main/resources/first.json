@@ -68,7 +68,7 @@
             "action": {
               "type": "uri",
               "label": "Daftar",
-              "uri": "http://linecorp.com/"
+              "uri": "http://share-file.mydiscussion.net/daftar/"
             },
             "style": "primary"
           }

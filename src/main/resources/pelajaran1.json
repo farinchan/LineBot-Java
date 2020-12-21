@@ -1,0 +1,64 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://i.ibb.co/R6F4vCx/jlmc-aisatsu.jpg",
+    "size": "full"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Aisatsu (挨拶)",
+        "size": "lg",
+        "color": "#ff584f"
+      },
+      {
+        "type": "text",
+        "text": "\"Aisatsu\" dalam bahasa Indonesia berarti salam \nungkapan aisatsu, misalnya salam ketika bertemu, berpisah, saat akan makan, selesai makan, akan masuk rumah, keluar rumah, pulang kerja, mengucapkan terima kasih, minta maaf, dan masih banyak lagi. ayo mari kita pelajari!! \nがんばりましょう (^-^)",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "おはようございます \nOhayou Gozaimasu \nSelamat pagi\n",
+        "wrap": true,
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "こんにちは \nKonnichiwa \nSelamat siang",
+        "wrap": true,
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "こんばんは \nKonbanwa \nSelamat malam ",
+        "wrap": true,
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "おげんきですか。 \nOgenki desuka? \nApa kabar?",
+        "wrap": true,
+        "margin": "lg"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "Pelajari Lebih Lanjut",
+          "uri": "http://bajepsneker.blogspot.com/2018/12/pelajaran-1-aisatsu-salam-dan-ungkapan.html"
+        },
+        "style": "secondary"
+      }
+    ]
+  }
+}

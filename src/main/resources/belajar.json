@@ -1,0 +1,146 @@
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Wah, Sepertinya Kalian Sangat bersemangat sekali ya, Hhmm.. \n\nTanpa Basa basi lagi ayo kita belajar, \nsilahkan pilih Pelajaran Kalian",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "Modul 1",
+        "margin": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 1",
+              "data": "Pelajaran1",
+              "displayText": "Pelajaran1"
+            },
+            "style": "secondary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 2",
+              "data": "Pelajaran2",
+              "displayText": "Pelajaran2"
+            },
+            "style": "secondary",
+            "margin": "md"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 3",
+              "data": "Pelajaran3",
+              "displayText": "Pelajara3"
+            },
+            "style": "secondary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 4",
+              "data": "Pelajaran4",
+              "displayText": "Pelajaran4"
+            },
+            "style": "secondary",
+            "margin": "md"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "Modul 2",
+        "margin": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 5",
+              "data": "Pelajaran5",
+              "displayText": "Pelajaran5"
+            },
+            "style": "secondary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 6",
+              "data": "Pelajaran6",
+              "displayText": "Pelajaran6"
+            },
+            "style": "secondary",
+            "margin": "md"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 7",
+              "data": "Pelajaran7",
+              "displayText": "Pelajaran7"
+            },
+            "style": "secondary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "Pelajaran 8",
+              "data": "Pelajaran8",
+              "displayText": "Pelajaran8"
+            },
+            "style": "secondary",
+            "margin": "md"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "Modul 3",
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "Coming Soon",
+        "align": "center"
+      }
+    ]
+  }
+}
