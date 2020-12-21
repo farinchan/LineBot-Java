@@ -257,10 +257,10 @@ public class Controller {
                     else if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
                         replyFlexMessage1(event.getReplyToken());
                     }
-                    else if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("About")){
                         replyFlexMessage2(event.getReplyToken());
                     }
-                    else if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("Pengajar")){
                         replyFlexMessage3(event.getReplyToken());
                     }
                     else {
