@@ -251,17 +251,20 @@ public class Controller {
                     if(textMessageContent.getText().equalsIgnoreCase("userid")){
                         replyText(event.getReplyToken(), event.getSource().getUserId());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("coba")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("coba")){
                         replyText(event.getReplyToken(), "sedang mencoba, dengan penuh kekuatan :)");
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("Haloo")){
                         replyFlexMessage1(event.getReplyToken());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("ABOUT")){
                         replyFlexMessage2(event.getReplyToken());
                     }
-                    if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
+                    else if(textMessageContent.getText().equalsIgnoreCase("PENGAJAR")){
                         replyFlexMessage3(event.getReplyToken());
+                    }
+                    else {
+                        replyText(event.getReplyToken(), "command tidak dikenali, mohon masukkan kembali :)");
                     }
 
                     /*kode dibawah untuk reply message, kembalikan message yang dikirim
