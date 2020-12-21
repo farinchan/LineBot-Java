@@ -82,9 +82,9 @@ public class Controller {
                 // Reply postback
                 else if(event instanceof PostbackEvent){
                     PostbackEvent postbackEvent = (PostbackEvent) event;
-                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("aksi_1")){
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("About")){
                         //kasih reply yang sesuai
-                        handleOneOnOneChats((MessageEvent) event);
+                        replyFlexMessage2(((PostbackEvent) event).getReplyToken());
                     }
                 }
             });
