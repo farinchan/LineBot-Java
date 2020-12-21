@@ -83,9 +83,12 @@ public class Controller {
                 else if(event instanceof PostbackEvent){
                     PostbackEvent postbackEvent = (PostbackEvent) event;
                     if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("About")){
-                        //kasih reply yang sesuai
                         replyFlexMessage2(((PostbackEvent) event).getReplyToken());
                     }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pengajar")){
+                        replyFlexMessage3(((PostbackEvent) event).getReplyToken());
+                    }
+
                 }
             });
 
@@ -333,7 +336,7 @@ public class Controller {
     private void replyFlexMessage3(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("flex_message.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pengajar.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
