@@ -328,7 +328,7 @@ public class Controller {
     private void replyFlexMessage2(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("belajar.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
@@ -342,7 +342,7 @@ public class Controller {
     private void replyFlexMessage3(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pengajar.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pelajaran1.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
