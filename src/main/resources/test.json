@@ -14,7 +14,7 @@
             "contents": [
               {
                 "type": "image",
-                "url": "https://percobaan-line.herokuapp.com/content/13235075318005",
+                "url": "https://percobaan-line.herokuapp.com/content/13240009523944",
                 "aspectMode": "cover",
                 "size": "full"
               }
@@ -32,7 +32,7 @@
                 "contents": [
                   {
                     "type": "span",
-                    "text": "Haloo",
+                    "text": "brown_05",
                     "weight": "bold",
                     "color": "#000000"
                   },
@@ -42,7 +42,7 @@
                   },
                   {
                     "type": "span",
-                    "text": "Ada yang bisa saya bantu"
+                    "text": "I went to the Brown&Cony cafe in Tokyo and took a picture"
                   }
                 ],
                 "size": "sm",
@@ -53,78 +53,8 @@
         ],
         "spacing": "xl",
         "paddingAll": "20px"
-      },
-      {
-        "type": "text",
-        "text": "untuk perintah bot\nsilahkan tekan tombol dbawah ini",
-        "margin": "none",
-        "align": "center",
-        "wrap": true,
-        "size": "sm"
       }
     ],
     "paddingAll": "0px"
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "untuk daftar klik dibawah ini ",
-        "align": "center"
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "postback",
-                  "label": "About",
-                  "data": "ABOUT",
-                  "displayText": "About"
-                }
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "postback",
-                  "label": "Pengajar",
-                  "data": "PENGAJAR",
-                  "displayText": "Pengajar"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "Ayo Mulai Belajar",
-              "data": "MULAI BELAJAR",
-              "displayText": "Ayo Mulai Belajar"
-            }
-          }
-        ]
-      }
-    ]
   }
 }
