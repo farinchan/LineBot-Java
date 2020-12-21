@@ -356,7 +356,7 @@ public class Controller {
     private void replyFlexMessage4(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("belajar.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pelajaran1.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
