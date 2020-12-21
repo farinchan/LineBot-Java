@@ -1,5 +1,22 @@
 {
   "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "日本語クラブ MAN 4 メダン",
+        "size": "lg",
+        "color": "#f53e3b",
+        "style": "normal",
+        "align": "center"
+      }
+    ],
+    "cornerRadius": "xl",
+    "borderColor": "#f53e3b",
+    "borderWidth": "normal"
+  },
   "body": {
     "type": "box",
     "layout": "vertical",
@@ -9,19 +26,9 @@
         "layout": "horizontal",
         "contents": [
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "image",
-                "url": "https://percobaan-line.herokuapp.com/content/13240009523944",
-                "aspectMode": "cover",
-                "size": "full"
-              }
-            ],
-            "cornerRadius": "100px",
-            "width": "72px",
-            "height": "72px"
+            "type": "image",
+            "url": "https://i.ibb.co/1q3n10M/pngwing-com.png",
+            "size": "md"
           },
           {
             "type": "box",
@@ -29,32 +36,19 @@
             "contents": [
               {
                 "type": "text",
-                "contents": [
-                  {
-                    "type": "span",
-                    "text": "brown_05",
-                    "weight": "bold",
-                    "color": "#000000"
-                  },
-                  {
-                    "type": "span",
-                    "text": "     "
-                  },
-                  {
-                    "type": "span",
-                    "text": "I went to the Brown&Cony cafe in Tokyo and took a picture"
-                  }
-                ],
-                "size": "sm",
-                "wrap": true
+                "text": "Haloo,",
+                "size": "lg"
+              },
+              {
+                "type": "text",
+                "text": "Ada yang bisa saya bantu?",
+                "wrap": true,
+                "size": "sm"
               }
             ]
           }
-        ],
-        "spacing": "xl",
-        "paddingAll": "20px"
+        ]
       }
-    ],
-    "paddingAll": "0px"
+    ]
   }
 }
