@@ -76,28 +76,6 @@
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Daftar Klub",
-            "align": "center",
-            "style": "normal",
-            "size": "xxl"
-          }
-        ],
-        "backgroundColor": "#75ba50",
-        "margin": "lg",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "http://share-file.mydiscussion.net/daftar/"
-        },
-        "paddingStart": "xxl",
-        "paddingEnd": "xxl"
-      },
-      {
-        "type": "box",
         "layout": "horizontal",
         "contents": [
           {
