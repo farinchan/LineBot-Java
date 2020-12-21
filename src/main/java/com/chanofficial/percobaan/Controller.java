@@ -8,6 +8,7 @@ import com.linecorp.bot.model.Multicast;
 import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
+import com.linecorp.bot.model.event.PostbackEvent;
 import com.linecorp.bot.model.event.message.*;
 import com.linecorp.bot.model.event.source.GroupSource;
 import com.linecorp.bot.model.event.source.RoomSource;
@@ -74,6 +75,15 @@ public class Controller {
                         handleGroupRoomChats((MessageEvent) event);
                     } else {
                         // dengan method
+                        handleOneOnOneChats((MessageEvent) event);
+                    }
+                }
+
+                // Reply postback
+                else if(event instanceof PostbackEvent){
+                    PostbackEvent postbackEvent = (PostbackEvent) event;
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("aksi_1")){
+                        //kasih reply yang sesuai
                         handleOneOnOneChats((MessageEvent) event);
                     }
                 }
