@@ -10,12 +10,14 @@
         "size": "lg",
         "color": "#f53e3b",
         "style": "normal",
-        "align": "center"
+        "align": "center",
+        "decoration": "none"
       }
     ],
     "cornerRadius": "xl",
     "borderColor": "#f53e3b",
-    "borderWidth": "normal"
+    "borderWidth": "normal",
+    "height": "50px"
   },
   "body": {
     "type": "box",
@@ -46,6 +48,58 @@
                 "size": "sm"
               }
             ]
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Jika anda belum mendaftar di klub ini, silahkan mendaftar dengan menekan tombol dibawah ini",
+            "wrap": true,
+            "gravity": "center",
+            "align": "center",
+            "size": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Daftar",
+              "uri": "http://linecorp.com/"
+            },
+            "style": "primary"
+          }
+        ],
+        "offsetTop": "xl"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://linecorp.com/"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://linecorp.com/"
+            }
           }
         ]
       }
