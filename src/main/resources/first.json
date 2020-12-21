@@ -94,7 +94,9 @@
               "displayText": "About"
             },
             "style": "secondary",
-            "offsetEnd": "xs"
+            "offsetEnd": "none",
+            "margin": "sm",
+            "gravity": "center"
           },
           {
             "type": "button",
@@ -105,7 +107,9 @@
               "displayText": "Pengajar"
             },
             "style": "secondary",
-            "offsetStart": "xs"
+            "offsetStart": "none",
+            "margin": "xs",
+            "gravity": "center"
           }
         ]
       },
@@ -118,7 +122,9 @@
           "displayText": "mulai belajar"
         },
         "style": "secondary",
-        "offsetTop": "md"
+        "offsetTop": "none",
+        "margin": "md",
+        "gravity": "center"
       }
     ]
   }
