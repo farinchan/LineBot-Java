@@ -94,6 +94,27 @@ public class Controller {
                     if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran1")){
                         replyFlexMessage5(((PostbackEvent) event).getReplyToken());
                     }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran2")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran3")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran4")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran5")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran6")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran7")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran8")){
+                        replyText(((PostbackEvent) event).getReplyToken(), "Coming Soon\npelajaran belum ditambahin\nselalu pantegin terus bot ini\ntingkatkan terus semangat belajar anda :)\nがんばってください");
+                    }
 
                 }
             });

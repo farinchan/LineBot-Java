@@ -31,9 +31,10 @@
           {
             "type": "button",
             "action": {
-              "type": "message",
-              "label": "Pelajaran 2",
-              "text": "Coming soon :0"
+              "type": "postback",
+              "label": "pelajaran 2",
+              "data": "pelajaran2",
+              "displayText": "pelajaran2"
             },
             "style": "secondary",
             "margin": "md"
@@ -48,9 +49,10 @@
           {
             "type": "button",
             "action": {
-              "type": "message",
+              "type": "postback",
               "label": "pelajaran 3",
-              "text": "coming soon :0"
+              "data": "pelajaran3",
+              "displayText": "pelajaran3"
             },
             "style": "secondary"
           },
