@@ -88,7 +88,7 @@ public class Controller {
                     if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pengajar")){
                         replyFlexMessage3(((PostbackEvent) event).getReplyToken());
                     }
-                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("mulai belajar")){
+                    if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("belajar")){
                         replyFlexMessage4(((PostbackEvent) event).getReplyToken());
                     }
                     if(postbackEvent.getPostbackContent().getData().equalsIgnoreCase("pelajaran1")){
@@ -328,7 +328,7 @@ public class Controller {
     private void replyFlexMessage2(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("belajar.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("info.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
@@ -342,7 +342,7 @@ public class Controller {
     private void replyFlexMessage3(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pelajaran1.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pengajar.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);
@@ -356,7 +356,7 @@ public class Controller {
     private void replyFlexMessage4(String replyToken) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("pelajaran1.json"));
+            String flexTemplate = IOUtils.toString(classLoader.getResourceAsStream("belajar.json"));
 
             ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
             FlexContainer flexContainer = objectMapper.readValue(flexTemplate, FlexContainer.class);

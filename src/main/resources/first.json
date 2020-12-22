@@ -118,8 +118,8 @@
         "action": {
           "type": "postback",
           "label": "Ayo Mulai Belajar",
-          "data": "Ayo Mulai Belajar",
-          "displayText": "mulai belajar"
+          "data": "belajar",
+          "displayText": "belajar"
         },
         "style": "secondary",
         "offsetTop": "none",
