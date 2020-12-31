@@ -1,7 +1,7 @@
 # Line ChatBot-Java
 
 Line ChatBot sederhana menggunakan java
-anda bisa membuat bot anda terlebih dahulu di [LINE Devekoper](https://developers.line.biz/en/)
+anda bisa membuat bot anda terlebih dahulu di [LINE Developer](https://developers.line.biz/en/)<br>
 buka console dan login menggunakan akun line anda
 
 ## Konfigurasi
